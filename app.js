@@ -1,5 +1,7 @@
 const btnPlay = document.querySelector('.play')
 const btnPause = document.querySelector('.pause')
+const btnReset = document.querySelector('.reset')
+const range = document.querySelector('#size')
 const canvas = document.querySelector('#canvas')
 const c = canvas.getContext('2d')
 canvas.width = canvas.height = 500
@@ -10,7 +12,7 @@ c.lineWidth = '1'
 
 let gameData = []
 let cellSize = 10
-let cellsCount = canvas.width /cellSize
+let cellsCount = canvas.width / cellSize
 
 const makeRow = (w, h) => {
   let row = []
@@ -118,15 +120,16 @@ const gameRun = (t) => {
   renderCells()
 }
 
-// canvas.addEventListener('click', e => {
-//   let x = Math.floor(e.layerX/cellSize)
-//   let y = Math.floor(e.layerY/cellSize)
+canvas.addEventListener('contextmenu', e => {
+  e.preventDefault()
+  let x = Math.floor(e.layerX/cellSize)
+  let y = Math.floor(e.layerY/cellSize)
   
-//   let target = gameData[y][x]
-//   target.state = !target.state
+  let target = gameData[y][x]
+  target.state = 0
 
-//   renderCells()
-// })
+  renderCells()
+})
 
 
 const mouseHandler = e => {
@@ -167,4 +170,15 @@ btnPlay.addEventListener('click', () => {
 })
 btnPause.addEventListener('click', () => {
   clearInterval(timeout)
+})
+btnReset.addEventListener('click', () => {
+  clearInterval(timeout)
+  init()
+})
+
+range.addEventListener('change', e => {
+  canvas.width = canvas.height = e.target.value*50
+  cellsCount = canvas.width / cellSize
+  makeArray( e.target.value*5,  e.target.value*5)
+  renderCells()
 })

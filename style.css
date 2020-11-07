@@ -11,14 +11,12 @@
 
 #app {
   margin: 20px auto;
-  width: 502px;
-  height: 502px;
+  width: fit-content;
   border: 1px solid #121212;
 }
 
 canvas {
-  width: 100%;
-  height: 100%;
+  
 }
 
 .controls {
@@ -34,4 +32,7 @@ canvas {
   margin: 20px auto;
   width: 20px;
   height:20px;
+}
+.btn img {
+  width: 100%;
 }
