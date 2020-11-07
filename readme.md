@@ -1,1 +1,1 @@
-# https://alexeykrix.github.io/gamelife
+# https://alexeykrix.github.io/game-life/
