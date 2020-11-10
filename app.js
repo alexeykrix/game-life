@@ -31,7 +31,8 @@ const makeArray = (w, h) => {
 }
 
 const renderCell = (x, y, isLive) => {
-  c.fillStyle =  isLive ? '#121212' : '#ededed'
+  if (!isLive) return
+  c.fillStyle = '#121212'
   c.beginPath()
   c.rect(x*cellSize, y*cellSize, cellSize, cellSize)
   c.fill()
@@ -39,6 +40,11 @@ const renderCell = (x, y, isLive) => {
 }
 
 const renderCells = () => {
+  c.fillStyle = '#ededed'
+  c.beginPath()
+  c.rect(0, 0, canvas.width, canvas.width)
+  c.fill()
+  c.closePath()
   gameData.flat().forEach(el => {
     renderCell(el.x, el.y, el.state)
   })
