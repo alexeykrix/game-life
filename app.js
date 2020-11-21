@@ -30,9 +30,9 @@ const makeArray = (w, h) => {
   gameData = arr
 }
 
-const renderCell = (x, y, isLive) => {
+const renderCell = (x, y, isLive, id) => {
   if (!isLive) return
-  c.fillStyle = '#121212'
+  c.fillStyle = id%2 === 0 ? '#f39c12' : '#e67e22'
   c.beginPath()
   c.rect(x*cellSize, y*cellSize, cellSize, cellSize)
   c.fill()
@@ -40,13 +40,13 @@ const renderCell = (x, y, isLive) => {
 }
 
 const renderCells = () => {
-  c.fillStyle = '#ededed'
+  c.fillStyle = '#2e2d2e'
   c.beginPath()
   c.rect(0, 0, canvas.width, canvas.width)
   c.fill()
   c.closePath()
-  gameData.flat().forEach(el => {
-    renderCell(el.x, el.y, el.state)
+  gameData.flat().forEach((el, id) => {
+    renderCell(el.x, el.y, el.state, id)
   })
 }
 
