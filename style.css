@@ -9,31 +9,45 @@
   font-family: Nunito, sans-serif;
 }
 
-#app {
+.app {
   margin: 20px auto;
   width: fit-content;
   border: 1px solid #121212;
 }
 
 canvas {
-  
   border: 5px solid #2980b9;
 }
 
 .controls {
   user-select: none;
-  width: 500px;
-  margin: 0 auto;
+  width: fit-content;
+  margin: 0 auto 30px;
   text-align: center;
+  display: flex;
+  border-bottom: 5px solid #2980b9;
 }
 
 .btn {
   display: inline-block;
   cursor: pointer;
-  margin: 20px auto;
+  margin: 20px 5px;
   width: 20px;
   height:20px;
+  border: none;
+  
 }
-.btn img {
-  width: 100%;
+input {
+  display: block;
+  width: 150px;
+}
+
+.btn.play {
+  background: #ededed no-repeat url('https://www.flaticon.com/svg/static/icons/svg/748/748134.svg') center/80%;
+}
+.btn.pause {
+  background: #ededed no-repeat url('https://www.flaticon.com/svg/static/icons/svg/748/748136.svg') center/80%;
+}
+.btn.reset {
+  background: #ededed no-repeat url('https://www.flaticon.com/svg/static/icons/svg/263/263110.svg') center/80%;
 }
